@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  mosquitto:
+    image: docker.io/library/eclipse-mosquitto:2
+    container_name: mosquitto
+    restart: unless-stopped
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro,Z
+      - mosquitto_data:/mosquitto/data
+
+  mysa2mqtt:
+    image: docker.io/bourquep/mysa2mqtt:latest
+    container_name: mysa2mqtt
+    restart: unless-stopped
+    depends_on:
+      - mosquitto
+    env_file:
+      - .env
+    environment:
+      - M2M_MQTT_HOST=mosquitto
+      - M2M_MQTT_PORT=1883
+
+volumes:
+  mosquitto_data:
+
