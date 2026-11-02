@@ -12,14 +12,14 @@ This repository runs a local MQTT bridge stack for **Mysa Smart Thermostats** us
   - Online/offline status, HVAC mode, and active state (`HEATING`, `COOLING`, `IDLE`, `OFF`)
   - Live ambient temperature and target setpoint in both `°F` and `°C`
   - Relative humidity (`%`), fan mode, hardware metadata (`ID`, `SN`, `FW`), and last-updated timestamp with a live staleness counter.
-- **[`.env.example`](./.env.example)**: Template for Mysa credentials and `M2M_*` configuration options.
+- **[`env.example`](./env.example)**: Template for Mysa credentials and `M2M_*` configuration options.
 
 ## 1. Configure Environment
 
-Copy [`.env.example`](./.env.example) to `.env` and fill in your Mysa account credentials:
+Copy [`env.example`](./env.example) to `.env` and fill in your Mysa account credentials:
 
 ```bash
-cp .env.example .env
+cp env.example .env
 ```
 
 ## 2. Run the Compose Stack (`mosquitto` + `mysa2mqtt`)
