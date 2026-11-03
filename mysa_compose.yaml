@@ -13,7 +13,7 @@ services:
       - mosquitto_data:/mosquitto/data
 
   mysa2mqtt:
-    image: docker.io/bourquep/mysa2mqtt:latest
+    image: ghcr.io/sugartechllc/mysa2mqtt
     container_name: mysa2mqtt
     restart: unless-stopped
     depends_on:

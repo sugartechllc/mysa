@@ -1,0 +1,4 @@
+services:
+  mysa2mqtt:
+    image: mysa2mqtt:local
+    pull_policy: never
